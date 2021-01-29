@@ -1,0 +1,34 @@
+<template name="userPage">
+  <div class="container">
+    <header>
+      <div style="display: flex; justify-content: space-between">
+        <h1 class="userpage__title">All Users</h1>
+        <button class="home-btn page-btn">Load todos</button>
+      </div>
+      {{> loginButtons}}
+      <div
+        style="display: flex; justify-content: space-between; margin-top: 20px"
+      >
+        <button class="load-users">Load more users</button>
+      </div>
+    </header>
+    <div style="display: flex; flex-direction: column">
+      <div style="display: flex; justify-content: space-between; padding: 10px">
+        <h3>Username</h3>
+        <h3>Email</h3>
+        <h3>Create Date</h3>
+        <h3>Ban Users</h3>
+      </div>
+      {{#each users}}
+      <div class="user-wrapper">
+        <span class="user-username">{{username}}</span>
+        <span class="user-email">{{userEmail}}</span>
+        <span class="user-date">{{userCreateDate}}</span>
+        <button class="user-ban">
+          {{#if banned}} Unban {{else}} Ban {{/if}}
+        </button>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</template>

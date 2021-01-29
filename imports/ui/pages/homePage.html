@@ -1,0 +1,31 @@
+<template name="homePage">
+  <div class="container">
+    <header>
+      <div style="display: flex; justify-content: space-between">
+        <h1>Todo List ({{incompleteCount}})</h1>
+        <button class="load-users page-btn">Load users</button>
+      </div>
+
+      {{> loginButtons}} {{#if currentUser}}
+      <form class="new-task">
+        <input type="text" name="text" placeholder="Type to add new tasks" />
+      </form>
+      {{/if}}
+      <br />
+      <div
+        class="buttons-wrapper"
+        style="display: flex; justify-content: space-between"
+      >
+        <button class="load-todos">Load more todos</button>
+        <label class="hide-completed">
+          <input type="checkbox" />
+          Hide Completed Tasks
+        </label>
+      </div>
+    </header>
+
+    <ul>
+      {{#each tasks}} {{> task}} {{/each}}
+    </ul>
+  </div>
+</template>
